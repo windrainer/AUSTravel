@@ -1,0 +1,75 @@
+
+<div *ngIf="pageTourEntry">
+    <h2><span jhiTranslate="ausTravelApp.pageTourEntry.detail.title">Page Tour Entry</span> {{pageTourEntry.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ausTravelApp.pageTourEntry.name">Name</span></dt>
+        <dd>
+            <span>{{pageTourEntry.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.pageTourEntry.heading">Heading</span></dt>
+        <dd>
+            <span>{{pageTourEntry.heading}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.pageTourEntry.subTitle">Sub Title</span></dt>
+        <dd>
+            <span>{{pageTourEntry.subTitle}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.pageTourEntry.content">Content</span></dt>
+        <dd>
+            <span>{{pageTourEntry.content}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.pageTourEntry.imgUrl1">Img Url 1</span></dt>
+        <dd>
+            <span>{{pageTourEntry.imgUrl1}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.pageTourEntry.imgUrl2">Img Url 2</span></dt>
+        <dd>
+            <span>{{pageTourEntry.imgUrl2}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.pageTourEntry.cssStyle">Css Style</span></dt>
+        <dd>
+            <span>{{pageTourEntry.cssStyle}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.pageTourEntry.createBy">Create By</span></dt>
+        <dd>
+            <span>{{pageTourEntry.createBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.pageTourEntry.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{pageTourEntry.createTime | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.pageTourEntry.updateBy">Update By</span></dt>
+        <dd>
+            <span>{{pageTourEntry.updateBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.pageTourEntry.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{pageTourEntry.updateTime | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.pageTourEntry.colWidth">Col Width</span></dt>
+        <dd>
+            <span>{{pageTourEntry.colWidth}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.pageTourEntry.tour">Tour</span></dt>
+        <dd>
+            <div *ngIf="pageTourEntry.tour">
+                <a [routerLink]="['/tour', pageTourEntry.tour?.id]">{{pageTourEntry.tour?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'page-tour-entry/'+ pageTourEntry.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

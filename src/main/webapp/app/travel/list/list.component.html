@@ -1,0 +1,36 @@
+<header class="main-header">
+    <div class="col-sm-8 col-sm-offset-2">
+        <div class="logo">
+            <a href="index.html">
+                <img src="../../../content/images/logo.jpg" />
+            </a>
+        </div>
+        <!-- Static Header -->
+        <div class="header-text">
+            <div class="header-text-inner">
+                <h1>Explore Western Australia <br>A wonderful trip you never forget</h1>
+                <p>Come with us and explore the beautiful western australia together ! <br>Discover the real moments!</p>
+                <a href="#" class="btn btn-header">Get Started</a>
+            </div>
+        </div><!-- /header-text -->
+    </div>
+</header>
+<div id="page-content">
+    <!-- ////////////Overview Main Nav -->
+    <div class="no-gutter" id="overview-mainnav">
+        <div *ngFor="let homeCube of homeCubes" [class]="homeCube.colWidth">
+            <a class="nav-item-inner" [routerLink]="['tour']">
+                <div [class]="homeCube.style" [style]="getBackgroundImage(homeCube)"></div>
+                <h3 class="sub-title">{{homeCube.subTitle}}</h3>
+                <div class="nav-item-detail">
+                    <h2 class="title">{{homeCube.heading}}</h2>
+                    <p>{{homeCube.content}}</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="copyrights">Collect from <a href="" >Bootstrap Template</a></div>
+<jhi-page-contact></jhi-page-contact>
+
+</div><!-- .wrap-body -->

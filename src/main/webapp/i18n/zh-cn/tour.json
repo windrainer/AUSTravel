@@ -1,0 +1,30 @@
+{
+    "ausTravelApp": {
+        "tour" : {
+            "home": {
+                "title": "Tours",
+                "createLabel": "Create a new Tour",
+                "createOrEditLabel": "Create or edit a Tour"
+            },
+            "created": "A new Tour is created with identifier {{ param }}",
+            "updated": "A Tour is updated with identifier {{ param }}",
+            "deleted": "A Tour is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tour {{ id }}?"
+            },
+            "detail": {
+                "title": "Tour"
+            },
+            "name": "Name",
+            "content": "Content",
+            "price": "Price",
+            "discount": "Discount",
+            "imgUrl1": "Img Url 1",
+            "imgUrl2": "Img Url 2",
+            "createBy": "Create By",
+            "createTime": "Create Time",
+            "updateBy": "Update By",
+            "updateTime": "Update Time"
+        }
+    }
+}

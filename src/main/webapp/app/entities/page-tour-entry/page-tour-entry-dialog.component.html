@@ -1,0 +1,114 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myPageTourEntryLabel" jhiTranslate="ausTravelApp.pageTourEntry.home.createOrEditLabel">Create or edit a Page Tour Entry</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!pageTourEntry.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="pageTourEntry.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.pageTourEntry.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="pageTourEntry.name" required />
+            <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.pageTourEntry.heading" for="field_heading">Heading</label>
+            <input type="text" class="form-control" name="heading" id="field_heading"
+                [(ngModel)]="pageTourEntry.heading"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.pageTourEntry.subTitle" for="field_subTitle">Sub Title</label>
+            <input type="text" class="form-control" name="subTitle" id="field_subTitle"
+                [(ngModel)]="pageTourEntry.subTitle"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.pageTourEntry.content" for="field_content">Content</label>
+            <input type="text" class="form-control" name="content" id="field_content"
+                [(ngModel)]="pageTourEntry.content" required />
+            <div [hidden]="!(editForm.controls.content?.dirty && editForm.controls.content?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.content?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.pageTourEntry.imgUrl1" for="field_imgUrl1">Img Url 1</label>
+            <input type="text" class="form-control" name="imgUrl1" id="field_imgUrl1"
+                [(ngModel)]="pageTourEntry.imgUrl1"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.pageTourEntry.imgUrl2" for="field_imgUrl2">Img Url 2</label>
+            <input type="text" class="form-control" name="imgUrl2" id="field_imgUrl2"
+                [(ngModel)]="pageTourEntry.imgUrl2"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.pageTourEntry.cssStyle" for="field_cssStyle">Css Style</label>
+            <input type="text" class="form-control" name="cssStyle" id="field_cssStyle"
+                [(ngModel)]="pageTourEntry.cssStyle"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.pageTourEntry.createBy" for="field_createBy">Create By</label>
+            <input type="text" class="form-control" name="createBy" id="field_createBy"
+                [(ngModel)]="pageTourEntry.createBy"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.pageTourEntry.createTime" for="field_createTime">Create Time</label>
+            <div class="input-group">
+                <input id="field_createTime" type="text" class="form-control" name="createTime" ngbDatepicker  #createTimeDp="ngbDatepicker" [(ngModel)]="pageTourEntry.createTime"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="createTimeDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.pageTourEntry.updateBy" for="field_updateBy">Update By</label>
+            <input type="text" class="form-control" name="updateBy" id="field_updateBy"
+                [(ngModel)]="pageTourEntry.updateBy"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.pageTourEntry.updateTime" for="field_updateTime">Update Time</label>
+            <div class="input-group">
+                <input id="field_updateTime" type="text" class="form-control" name="updateTime" ngbDatepicker  #updateTimeDp="ngbDatepicker" [(ngModel)]="pageTourEntry.updateTime"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="updateTimeDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.pageTourEntry.colWidth" for="field_colWidth">Col Width</label>
+            <input type="text" class="form-control" name="colWidth" id="field_colWidth"
+                [(ngModel)]="pageTourEntry.colWidth"  />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.pageTourEntry.tour" for="field_tour">Tour</label>
+            <select class="form-control" id="field_tour" name="tour" [(ngModel)]="pageTourEntry.tour">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="tourOption.id === pageTourEntry.tour?.id ? pageTourEntry.tour : tourOption" *ngFor="let tourOption of tours; trackBy: trackTourById">{{tourOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

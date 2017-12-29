@@ -1,0 +1,55 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCubeLabel" jhiTranslate="ausTravelApp.cube.home.createOrEditLabel">Create or edit a Cube</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!cube.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="cube.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cube.imgUrl" for="field_imgUrl">Img Url</label>
+            <input type="text" class="form-control" name="imgUrl" id="field_imgUrl"
+                [(ngModel)]="cube.imgUrl"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cube.colWidth" for="field_colWidth">Col Width</label>
+            <input type="text" class="form-control" name="colWidth" id="field_colWidth"
+                [(ngModel)]="cube.colWidth"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cube.subTitle" for="field_subTitle">Sub Title</label>
+            <input type="text" class="form-control" name="subTitle" id="field_subTitle"
+                [(ngModel)]="cube.subTitle"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cube.heading" for="field_heading">Heading</label>
+            <input type="text" class="form-control" name="heading" id="field_heading"
+                [(ngModel)]="cube.heading"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cube.content" for="field_content">Content</label>
+            <input type="text" class="form-control" name="content" id="field_content"
+                [(ngModel)]="cube.content"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cube.style" for="field_style">Style</label>
+            <input type="text" class="form-control" name="style" id="field_style"
+                [(ngModel)]="cube.style"  />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,52 @@
+<div class="wrap-body">
+    <header class="main-header">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="../../../content/images/logo.jpg" />
+                </a>
+            </div>
+            <!-- Static Header -->
+            <div class="header-text">
+                <div class="header-text-inner">
+                    <h1>Your Favorite Source of Free<br> Bootstrap Themes</h1>
+                    <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! <br>Just download your template and start going, no strings attached!</p>
+                    <a href="#" class="btn btn-header">Get Started</a>
+                </div>
+            </div><!-- /header-text -->
+        </div>
+    </header>
+    <!-- /Section: intro -->
+
+    <!-- /////////////////////////////////////////Content -->
+    <div id="page-content" class="container-fluid">
+        <div class="row">
+            <!-----------------Content-------------------->
+            <article class="single-post">
+                <div class="wrap-post pd-exlarge-sm pd-small-xs"><!--Start Box-->
+                    <div class="entry-header text-center">
+                        <h1 class="entry-title">RETRO GALLERY: FRAGMENTING PERSISTENT FLIGHT AND PATHOLOGY</h1>
+                        <span class="entry-meta">
+								<ul class="list-inline link">
+									<li>By <a href="#">{{tourDetail.createBy}}</a></li>
+									<li><a href="#">August, 22 2016</a></li>
+									<!--<li><a href="#">0 comments</a></li>-->
+								</ul>
+							</span>
+                    </div>
+                    <div class="post-thumbnail-wrap">
+                        <img src={{tourDetail.imgUrl}} class="img-responsive" alt="">
+                    </div>
+                    <div class="entry-content">
+                        <div  class="excerpt" [innerHTML]="getTourDetailContent()">
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <jhi-page-contact></jhi-page-contact>
+
+</div><!-- .wrap-body -->
+

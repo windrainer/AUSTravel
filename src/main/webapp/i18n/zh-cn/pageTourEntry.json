@@ -1,0 +1,33 @@
+{
+    "ausTravelApp": {
+        "pageTourEntry" : {
+            "home": {
+                "title": "Page Tour Entries",
+                "createLabel": "Create a new Page Tour Entry",
+                "createOrEditLabel": "Create or edit a Page Tour Entry"
+            },
+            "created": "A new Page Tour Entry is created with identifier {{ param }}",
+            "updated": "A Page Tour Entry is updated with identifier {{ param }}",
+            "deleted": "A Page Tour Entry is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Page Tour Entry {{ id }}?"
+            },
+            "detail": {
+                "title": "Page Tour Entry"
+            },
+            "name": "Name",
+            "heading": "Heading",
+            "subTitle": "Sub Title",
+            "content": "Content",
+            "imgUrl1": "Img Url 1",
+            "imgUrl2": "Img Url 2",
+            "cssStyle": "Css Style",
+            "createBy": "Create By",
+            "createTime": "Create Time",
+            "updateBy": "Update By",
+            "updateTime": "Update Time",
+            "colWidth": "Col Width",
+            "tour": "Tour"
+        }
+    }
+}

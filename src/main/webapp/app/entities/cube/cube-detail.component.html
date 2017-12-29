@@ -1,0 +1,45 @@
+
+<div *ngIf="cube">
+    <h2><span jhiTranslate="ausTravelApp.cube.detail.title">Cube</span> {{cube.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ausTravelApp.cube.imgUrl">Img Url</span></dt>
+        <dd>
+            <span>{{cube.imgUrl}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cube.colWidth">Col Width</span></dt>
+        <dd>
+            <span>{{cube.colWidth}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cube.subTitle">Sub Title</span></dt>
+        <dd>
+            <span>{{cube.subTitle}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cube.heading">Heading</span></dt>
+        <dd>
+            <span>{{cube.heading}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cube.content">Content</span></dt>
+        <dd>
+            <span>{{cube.content}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cube.style">Style</span></dt>
+        <dd>
+            <span>{{cube.style}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'cube/'+ cube.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

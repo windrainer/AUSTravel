@@ -1,0 +1,92 @@
+<div>
+    <h2>
+        <span jhiTranslate="ausTravelApp.pageTourEntry.home.title">Page Tour Entries</span>
+        <button class="btn btn-primary float-right jh-create-entity create-page-tour-entry" [routerLink]="['/', { outlets: { popup: ['page-tour-entry-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="ausTravelApp.pageTourEntry.home.createLabel">
+            Create new Page Tour Entry
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="pageTourEntries">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="name"><span jhiTranslate="ausTravelApp.pageTourEntry.name">Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="heading"><span jhiTranslate="ausTravelApp.pageTourEntry.heading">Heading</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="subTitle"><span jhiTranslate="ausTravelApp.pageTourEntry.subTitle">Sub Title</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="content"><span jhiTranslate="ausTravelApp.pageTourEntry.content">Content</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="imgUrl1"><span jhiTranslate="ausTravelApp.pageTourEntry.imgUrl1">Img Url 1</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="imgUrl2"><span jhiTranslate="ausTravelApp.pageTourEntry.imgUrl2">Img Url 2</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="cssStyle"><span jhiTranslate="ausTravelApp.pageTourEntry.cssStyle">Css Style</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createBy"><span jhiTranslate="ausTravelApp.pageTourEntry.createBy">Create By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createTime"><span jhiTranslate="ausTravelApp.pageTourEntry.createTime">Create Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updateBy"><span jhiTranslate="ausTravelApp.pageTourEntry.updateBy">Update By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updateTime"><span jhiTranslate="ausTravelApp.pageTourEntry.updateTime">Update Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="colWidth"><span jhiTranslate="ausTravelApp.pageTourEntry.colWidth">Col Width</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="tour.id"><span jhiTranslate="ausTravelApp.pageTourEntry.tour">Tour</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let pageTourEntry of pageTourEntries ;trackBy: trackId">
+                <td><a [routerLink]="['../page-tour-entry', pageTourEntry.id ]">{{pageTourEntry.id}}</a></td>
+                <td>{{pageTourEntry.name}}</td>
+                <td>{{pageTourEntry.heading}}</td>
+                <td>{{pageTourEntry.subTitle}}</td>
+                <td>{{pageTourEntry.content}}</td>
+                <td>{{pageTourEntry.imgUrl1}}</td>
+                <td>{{pageTourEntry.imgUrl2}}</td>
+                <td>{{pageTourEntry.cssStyle}}</td>
+                <td>{{pageTourEntry.createBy}}</td>
+                <td>{{pageTourEntry.createTime | date:'mediumDate'}}</td>
+                <td>{{pageTourEntry.updateBy}}</td>
+                <td>{{pageTourEntry.updateTime | date:'mediumDate'}}</td>
+                <td>{{pageTourEntry.colWidth}}</td>
+                <td>
+                    <div *ngIf="pageTourEntry.tour">
+                        <a [routerLink]="['../tour', pageTourEntry.tour?.id ]" >{{pageTourEntry.tour?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../page-tour-entry', pageTourEntry.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'page-tour-entry/'+ pageTourEntry.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'page-tour-entry/'+ pageTourEntry.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="pageTourEntries && pageTourEntries.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

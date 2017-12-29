@@ -1,0 +1,61 @@
+
+<div *ngIf="tour">
+    <h2><span jhiTranslate="ausTravelApp.tour.detail.title">Tour</span> {{tour.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ausTravelApp.tour.name">Name</span></dt>
+        <dd>
+            <span>{{tour.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.tour.content">Content</span></dt>
+        <dd>
+            <span>{{tour.content}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.tour.price">Price</span></dt>
+        <dd>
+            <span>{{tour.price}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.tour.discount">Discount</span></dt>
+        <dd>
+            <span>{{tour.discount}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.tour.imgUrl1">Img Url 1</span></dt>
+        <dd>
+            <span>{{tour.imgUrl1}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.tour.imgUrl2">Img Url 2</span></dt>
+        <dd>
+            <span>{{tour.imgUrl2}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.tour.createBy">Create By</span></dt>
+        <dd>
+            <span>{{tour.createBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.tour.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{tour.createTime | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.tour.updateBy">Update By</span></dt>
+        <dd>
+            <span>{{tour.updateBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.tour.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{tour.updateTime | date:'mediumDate'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'tour/'+ tour.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
