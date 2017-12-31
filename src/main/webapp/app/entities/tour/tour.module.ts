@@ -15,6 +15,7 @@ import {
     tourPopupRoute,
     TourResolvePagingParams,
 } from './';
+import { TinymceModule } from '../../travel/tinymce/tinymce.module';
 
 const ENTITY_STATES = [
     ...tourRoute,
@@ -24,7 +25,8 @@ const ENTITY_STATES = [
 @NgModule({
     imports: [
         AusTravelSharedModule,
-        RouterModule.forRoot(ENTITY_STATES, { useHash: true })
+        RouterModule.forRoot(ENTITY_STATES, { useHash: true }),
+        TinymceModule
     ],
     declarations: [
         TourComponent,

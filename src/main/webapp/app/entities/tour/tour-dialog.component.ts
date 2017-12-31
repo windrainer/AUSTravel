@@ -66,6 +66,10 @@ export class TourDialogComponent implements OnInit {
     private onError(error: any) {
         this.jhiAlertService.error(error.message, null, null);
     }
+
+    keyupHandler(content: string)  {
+        this.tour.content = content;
+    }
 }
 
 @Component({

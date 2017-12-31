@@ -3,8 +3,8 @@ import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
 import { Account, LoginModalService, Principal, ResponseWrapper } from '../../shared';
-import { Cube } from '../../entities/cube/cube.model';
-import { CubeService } from '../../entities/cube/cube.service';
+import { PageTourEntry } from '../../entities/page-tour-entry/page-tour-entry.model';
+import { PageTourEntryService } from '../../entities/page-tour-entry/page-tour-entry.service';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 
 @Component({
@@ -19,7 +19,7 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
 export class TourListComponent implements OnInit {
     account: Account;
     modalRef: NgbModalRef;
-    homeCubes: Cube[];
+    homeCubes: PageTourEntry[];
 
     constructor(
         private principal: Principal,
@@ -27,7 +27,7 @@ export class TourListComponent implements OnInit {
         private eventManager: JhiEventManager,
         private jhiAlertService: JhiAlertService,
         private _sanitizer: DomSanitizer,
-        private cubeService: CubeService
+        private cubeService: PageTourEntryService
     ) {
     }
 
@@ -55,8 +55,8 @@ export class TourListComponent implements OnInit {
         this.modalRef = this.loginModalService.open();
     }
 
-    getBackgroundImage(homeCube: Cube) {
-        return this._sanitizer.bypassSecurityTrustStyle(homeCube.imgUrl);
+    getBackgroundImage(homeCube: PageTourEntry) {
+        return this._sanitizer.bypassSecurityTrustStyle(homeCube.imgUrl1);
     }
 
     loadAllCubes() {
