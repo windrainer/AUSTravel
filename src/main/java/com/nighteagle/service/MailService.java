@@ -74,6 +74,29 @@ public class MailService {
     }
 
     @Async
+    public void sendEnquiryEmail(String from, String subject, String content) {
+        String to = jHipsterProperties.getMail().getFrom(); //Enquiry email sends to us
+        log.debug("Send enquiry email to '{}' with subject '{}' and content={}",
+            to ,subject, content);
+        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+        try {
+            MimeMessageHelper message = new MimeMessageHelper(mimeMessage, false, CharEncoding.UTF_8);
+            message.setTo(to);
+            message.setFrom(from);
+            message.setSubject(subject);
+            message.setText(content, false);
+            javaMailSender.send(mimeMessage);
+            log.debug("Sent email to us '{}'", to);
+        } catch (Exception e) {
+            if (log.isDebugEnabled()) {
+                log.warn("Email could not be sent to us '{}'", to, e);
+            } else {
+                log.warn("Email could not be sent to us '{}': {}", to, e.getMessage());
+            }
+        }
+    }
+
+    @Async
     public void sendEmailFromTemplate(User user, String templateName, String titleKey) {
         Locale locale = Locale.forLanguageTag(user.getLangKey());
         Context context = new Context(locale);

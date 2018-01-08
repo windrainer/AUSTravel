@@ -2,9 +2,11 @@ package com.nighteagle.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.nighteagle.domain.Tour;
+import com.nighteagle.service.MailService;
 import com.nighteagle.service.TourService;
 import com.nighteagle.web.rest.util.HeaderUtil;
 import com.nighteagle.web.rest.util.PaginationUtil;
+import com.nighteagle.web.rest.vm.EnquiryVM;
 import io.swagger.annotations.ApiParam;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
@@ -36,8 +38,12 @@ public class TourResource {
 
     private final TourService tourService;
 
-    public TourResource(TourService tourService) {
+    private final MailService mailService;
+
+    public TourResource(TourService tourService, MailService mailService) {
+
         this.tourService = tourService;
+        this.mailService = mailService;
     }
 
     /**
@@ -123,5 +129,13 @@ public class TourResource {
         log.debug("REST request to delete Tour : {}", id);
         tourService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+    }
+
+    @PostMapping("/tours/enquiry")
+    public ResponseEntity enquiry(@RequestBody EnquiryVM enquiryVM) {
+        log.debug("REST request to enquire Tour : {}", enquiryVM.getEmail());
+        mailService.sendEnquiryEmail( enquiryVM.getEmail(), "Enquiry From:" + enquiryVM.getName(),
+            enquiryVM.getContent());
+        return new ResponseEntity<>("Enquiry email was sent", HttpStatus.OK);
     }
 }

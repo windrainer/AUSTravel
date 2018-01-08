@@ -20,15 +20,10 @@
             <th jhiSortBy="name"><span jhiTranslate="ausTravelApp.pageTourEntry.name">Name</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="heading"><span jhiTranslate="ausTravelApp.pageTourEntry.heading">Heading</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="subTitle"><span jhiTranslate="ausTravelApp.pageTourEntry.subTitle">Sub Title</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="content"><span jhiTranslate="ausTravelApp.pageTourEntry.content">Content</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="imgUrl1"><span jhiTranslate="ausTravelApp.pageTourEntry.imgUrl1">Img Url 1</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="imgUrl2"><span jhiTranslate="ausTravelApp.pageTourEntry.imgUrl2">Img Url 2</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="cssStyle"><span jhiTranslate="ausTravelApp.pageTourEntry.cssStyle">Css Style</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="createBy"><span jhiTranslate="ausTravelApp.pageTourEntry.createBy">Create By</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="createTime"><span jhiTranslate="ausTravelApp.pageTourEntry.createTime">Create Time</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="updateBy"><span jhiTranslate="ausTravelApp.pageTourEntry.updateBy">Update By</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="updateTime"><span jhiTranslate="ausTravelApp.pageTourEntry.updateTime">Update Time</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="colWidth"><span jhiTranslate="ausTravelApp.pageTourEntry.colWidth">Col Width</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="tour.id"><span jhiTranslate="ausTravelApp.pageTourEntry.tour">Tour</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
@@ -39,15 +34,10 @@
                 <td>{{pageTourEntry.name}}</td>
                 <td>{{pageTourEntry.heading}}</td>
                 <td>{{pageTourEntry.subTitle}}</td>
-                <td>{{pageTourEntry.content}}</td>
-                <td>{{pageTourEntry.imgUrl1}}</td>
-                <td>{{pageTourEntry.imgUrl2}}</td>
-                <td>{{pageTourEntry.cssStyle}}</td>
                 <td>{{pageTourEntry.createBy}}</td>
                 <td>{{pageTourEntry.createTime | date:'mediumDate'}}</td>
                 <td>{{pageTourEntry.updateBy}}</td>
                 <td>{{pageTourEntry.updateTime | date:'mediumDate'}}</td>
-                <td>{{pageTourEntry.colWidth}}</td>
                 <td>
                     <div *ngIf="pageTourEntry.tour">
                         <a [routerLink]="['../tour', pageTourEntry.tour?.id ]" >{{pageTourEntry.tour?.id}}</a>

@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Ng2Webstorage } from 'ng2-webstorage';
 
 import { AusTravelSharedModule, UserRouteAccessService } from './shared';
-import { AusTravelHomeModule } from './home/home.module';
 import { AusTravelAdminModule } from './admin/admin.module';
 import { AusTravelAccountModule } from './account/account.module';
 import { AusTravelEntityModule } from './entities/entity.module';
@@ -37,7 +36,6 @@ import {
         AusTravelSharedModule,
         TourListModule,
         TourDetailModule,
-        AusTravelHomeModule,
         AusTravelAdminModule,
         AusTravelAccountModule,
         AusTravelEntityModule,

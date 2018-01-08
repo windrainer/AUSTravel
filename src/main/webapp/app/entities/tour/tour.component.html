@@ -18,11 +18,8 @@
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="name"><span jhiTranslate="ausTravelApp.tour.name">Name</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="content"><span jhiTranslate="ausTravelApp.tour.content">Content</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="price"><span jhiTranslate="ausTravelApp.tour.price">Price</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="discount"><span jhiTranslate="ausTravelApp.tour.discount">Discount</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="imgUrl1"><span jhiTranslate="ausTravelApp.tour.imgUrl1">Img Url 1</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="imgUrl2"><span jhiTranslate="ausTravelApp.tour.imgUrl2">Img Url 2</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="createBy"><span jhiTranslate="ausTravelApp.tour.createBy">Create By</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="createTime"><span jhiTranslate="ausTravelApp.tour.createTime">Create Time</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="updateBy"><span jhiTranslate="ausTravelApp.tour.updateBy">Update By</span> <span class="fa fa-sort"></span></th>
@@ -34,11 +31,8 @@
             <tr *ngFor="let tour of tours ;trackBy: trackId">
                 <td><a [routerLink]="['../tour', tour.id ]">{{tour.id}}</a></td>
                 <td>{{tour.name}}</td>
-                <td>{{tour.content}}</td>
                 <td>{{tour.price}}</td>
                 <td>{{tour.discount}}</td>
-                <td>{{tour.imgUrl1}}</td>
-                <td>{{tour.imgUrl2}}</td>
                 <td>{{tour.createBy}}</td>
                 <td>{{tour.createTime | date:'mediumDate'}}</td>
                 <td>{{tour.updateBy}}</td>

@@ -61,7 +61,7 @@ export class TourListComponent implements OnInit {
 
     loadAllCubes() {
         this.cubeService.query().subscribe(
-            (res: ResponseWrapper) => {this.homeCubes = res.json; console.log('返回的首页cubes是:' + res.json ) },
+            (res: ResponseWrapper) => {this.homeCubes = res.json; },
             (res: ResponseWrapper) => this.onError(res.json)
         );
     }

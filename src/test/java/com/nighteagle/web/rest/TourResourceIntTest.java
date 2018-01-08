@@ -4,6 +4,7 @@ import com.nighteagle.AusTravelApp;
 
 import com.nighteagle.domain.Tour;
 import com.nighteagle.repository.TourRepository;
+import com.nighteagle.service.MailService;
 import com.nighteagle.service.TourService;
 import com.nighteagle.web.rest.errors.ExceptionTranslator;
 
@@ -78,6 +79,9 @@ public class TourResourceIntTest {
     private TourService tourService;
 
     @Autowired
+    private MailService mailService;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -96,7 +100,7 @@ public class TourResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final TourResource tourResource = new TourResource(tourService);
+        final TourResource tourResource = new TourResource(tourService,mailService);
         this.restTourMockMvc = MockMvcBuilders.standaloneSetup(tourResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
