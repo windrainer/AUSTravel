@@ -4,7 +4,7 @@ import { Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Rx';
 import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
+import { JhiEventManager, JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 
 import { Tour } from './tour.model';
 import { TourPopupService } from './tour-popup.service';
@@ -23,6 +23,7 @@ export class TourDialogComponent implements OnInit {
 
     constructor(
         public activeModal: NgbActiveModal,
+        private dataUtils: JhiDataUtils,
         private jhiAlertService: JhiAlertService,
         private tourService: TourService,
         private eventManager: JhiEventManager
@@ -31,6 +32,22 @@ export class TourDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
+    }
+
+    keyupHandler(content: string) {
+        this.tour.content = content;
+    }
+
+    byteSize(field) {
+        return this.dataUtils.byteSize(field);
+    }
+
+    openFile(contentType, field) {
+        return this.dataUtils.openFile(contentType, field);
+    }
+
+    setFileData(event, entity, field, isImage) {
+        this.dataUtils.setFileData(event, entity, field, isImage);
     }
 
     clear() {
@@ -65,10 +82,6 @@ export class TourDialogComponent implements OnInit {
 
     private onError(error: any) {
         this.jhiAlertService.error(error.message, null, null);
-    }
-
-    keyupHandler(content: string)  {
-        this.tour.content = content;
     }
 }
 

@@ -16,7 +16,6 @@
                 "title": "Tour"
             },
             "name": "Name",
-            "content": "Content",
             "price": "Price",
             "discount": "Discount",
             "imgUrl1": "Img Url 1",
@@ -24,7 +23,8 @@
             "createBy": "Create By",
             "createTime": "Create Time",
             "updateBy": "Update By",
-            "updateTime": "Update Time"
+            "updateTime": "Update Time",
+            "content": "Content"
         }
     }
 }

@@ -29,10 +29,6 @@ public class Tour implements Serializable {
     private String name;
 
     @NotNull
-    @Column(name = "content", nullable = false)
-    private String content;
-
-    @NotNull
     @DecimalMin(value = "0")
     @Column(name = "price", precision=10, scale=2, nullable = false)
     private BigDecimal price;
@@ -60,6 +56,11 @@ public class Tour implements Serializable {
     @Column(name = "update_time")
     private LocalDate updateTime;
 
+    @NotNull
+    @Lob
+    @Column(name = "content", nullable = false)
+    private String content;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -80,19 +81,6 @@ public class Tour implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public Tour content(String content) {
-        this.content = content;
-        return this;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
     }
 
     public BigDecimal getPrice() {
@@ -198,6 +186,19 @@ public class Tour implements Serializable {
     public void setUpdateTime(LocalDate updateTime) {
         this.updateTime = updateTime;
     }
+
+    public String getContent() {
+        return content;
+    }
+
+    public Tour content(String content) {
+        this.content = content;
+        return this;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -225,7 +226,6 @@ public class Tour implements Serializable {
         return "Tour{" +
             "id=" + getId() +
             ", name='" + getName() + "'" +
-            ", content='" + getContent() + "'" +
             ", price='" + getPrice() + "'" +
             ", discount='" + getDiscount() + "'" +
             ", imgUrl1='" + getImgUrl1() + "'" +
@@ -234,6 +234,7 @@ public class Tour implements Serializable {
             ", createTime='" + getCreateTime() + "'" +
             ", updateBy='" + getUpdateBy() + "'" +
             ", updateTime='" + getUpdateTime() + "'" +
+            ", content='" + getContent() + "'" +
             "}";
     }
 }

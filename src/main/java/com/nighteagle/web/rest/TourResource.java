@@ -7,6 +7,7 @@ import com.nighteagle.service.TourService;
 import com.nighteagle.web.rest.util.HeaderUtil;
 import com.nighteagle.web.rest.util.PaginationUtil;
 import com.nighteagle.web.rest.vm.EnquiryVM;
+import io.github.jhipster.config.JHipsterProperties;
 import io.swagger.annotations.ApiParam;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
@@ -41,7 +42,6 @@ public class TourResource {
     private final MailService mailService;
 
     public TourResource(TourService tourService, MailService mailService) {
-
         this.tourService = tourService;
         this.mailService = mailService;
     }
@@ -118,6 +118,19 @@ public class TourResource {
     }
 
     /**
+     * A seperate method to get tour that everybody can call from main page.
+     * @param id
+     * @return
+     */
+    @GetMapping("/tours/page/{id}")
+    @Timed
+    public ResponseEntity<Tour> getTourOnPage(@PathVariable Long id) {
+        log.debug("REST request to get Tour : {}", id);
+        Tour tour = tourService.findOne(id);
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(tour));
+    }
+
+    /**
      * DELETE  /tours/:id : delete the "id" tour.
      *
      * @param id the id of the tour to delete
@@ -130,6 +143,7 @@ public class TourResource {
         tourService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
+
 
     @PostMapping("/tours/enquiry")
     public ResponseEntity enquiry(@RequestBody EnquiryVM enquiryVM) {

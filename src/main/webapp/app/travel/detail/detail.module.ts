@@ -5,6 +5,7 @@ import { AusTravelSharedModule } from '../../shared';
 
 import { TOUR_DETAIL_ROUTE, TourDetailComponent } from './';
 import { ContactModule } from '../contact/contact.module';
+import { DetailService} from './detail.service';
 
 @NgModule({
     imports: [
@@ -18,6 +19,7 @@ import { ContactModule } from '../contact/contact.module';
     entryComponents: [
     ],
     providers: [
+        DetailService
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

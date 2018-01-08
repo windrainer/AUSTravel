@@ -19,7 +19,7 @@
     <!-- ////////////Overview Main Nav -->
     <div class="no-gutter" id="overview-mainnav">
         <div *ngFor="let homeCube of homeCubes" [class]="homeCube.colWidth">
-            <a class="nav-item-inner" [routerLink]="['tour-detail']">
+            <a class="nav-item-inner" [routerLink]="['tour-detail',homeCube.tour?.id]">
                 <div [class]="homeCube.cssStyle" [style]="getBackgroundImage(homeCube)"></div>
                 <h3 class="sub-title">{{homeCube.subTitle}}</h3>
                 <div class="nav-item-detail">
