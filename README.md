@@ -1,5 +1,4 @@
 # AusTravel
-This application was generated using JHipster 4.9.0, you can find documentation and help at [http://www.jhipster.tech/documentation-archive/v4.9.0]
 
 v 1.0.0.1
 
@@ -9,3 +8,13 @@ v 1.0.0.1
    detail info on seperate pages.
    
 3) contact is a public module used by list and detail
+
+v 1.0.0.2
+
+1) added Tinymce editor
+
+2) Replaced Cube by Page Tour Entry entity
+
+3) linked each page-tour-entry to its detail page.
+
+4) added sending enquiry email function

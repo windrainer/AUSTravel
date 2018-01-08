@@ -13,7 +13,7 @@ const ENV = 'development';
 module.exports = webpackMerge(commonConfig({ env: ENV }), {
     devtool: 'eval-source-map',
     devServer: {
-        contentBase: './target/aus-travel-1.0.0.0',
+        contentBase: './target/aus-travel-1.0.0.2',
         proxy: [{
             context: [
                 /* jhipster-needle-add-entity-to-webpack - JHipster will add entity api paths here */
