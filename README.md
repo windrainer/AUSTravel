@@ -18,3 +18,7 @@ v 1.0.0.2
 3) linked each page-tour-entry to its detail page.
 
 4) added sending enquiry email function
+
+v 1.0.0.3
+
+1) added Image upload function that allow admin to change pictures

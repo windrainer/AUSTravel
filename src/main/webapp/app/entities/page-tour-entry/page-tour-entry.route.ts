@@ -33,7 +33,7 @@ export const pageTourEntryRoute: Routes = [
             'pagingParams': PageTourEntryResolvePagingParams
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'ausTravelApp.pageTourEntry.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -41,7 +41,7 @@ export const pageTourEntryRoute: Routes = [
         path: 'page-tour-entry/:id',
         component: PageTourEntryDetailComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'ausTravelApp.pageTourEntry.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -53,7 +53,7 @@ export const pageTourEntryPopupRoute: Routes = [
         path: 'page-tour-entry-new',
         component: PageTourEntryPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'ausTravelApp.pageTourEntry.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -63,7 +63,7 @@ export const pageTourEntryPopupRoute: Routes = [
         path: 'page-tour-entry/:id/edit',
         component: PageTourEntryPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'ausTravelApp.pageTourEntry.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -73,7 +73,7 @@ export const pageTourEntryPopupRoute: Routes = [
         path: 'page-tour-entry/:id/delete',
         component: PageTourEntryDeletePopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'ausTravelApp.pageTourEntry.home.title'
         },
         canActivate: [UserRouteAccessService],

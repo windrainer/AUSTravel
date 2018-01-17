@@ -56,7 +56,8 @@ export class TourListComponent implements OnInit {
     }
 
     getBackgroundImage(homeCube: PageTourEntry) {
-        return this._sanitizer.bypassSecurityTrustStyle(homeCube.imgUrl1);
+        const background: string = 'background-image: url(\'' + homeCube.imgUrl1 + '\')';
+        return this._sanitizer.bypassSecurityTrustStyle(background);
     }
 
     loadAllCubes() {

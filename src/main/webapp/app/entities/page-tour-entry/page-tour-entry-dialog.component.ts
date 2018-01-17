@@ -11,6 +11,8 @@ import { PageTourEntryPopupService } from './page-tour-entry-popup.service';
 import { PageTourEntryService } from './page-tour-entry.service';
 import { Tour, TourService } from '../tour';
 import { ResponseWrapper } from '../../shared';
+import { FileUploader } from 'ng2-file-upload';
+import { SERVER_API_URL } from '../../app.constants';
 
 @Component({
     selector: 'jhi-page-tour-entry-dialog',
@@ -24,6 +26,13 @@ export class PageTourEntryDialogComponent implements OnInit {
     tours: Tour[];
     createTimeDp: any;
     updateTimeDp: any;
+    imgUrl1: any;
+
+    private resourceUrl: string = SERVER_API_URL + 'api/files/upload';
+
+    public uploader: FileUploader = new FileUploader(
+        {   url: this.resourceUrl,
+            formatDataFunctionIsAsync: false});
 
     constructor(
         public activeModal: NgbActiveModal,
@@ -36,6 +45,7 @@ export class PageTourEntryDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
+
         this.tourService
             .query({filter: 'pagetourentry-is-null'})
             .subscribe((res: ResponseWrapper) => {
@@ -49,6 +59,11 @@ export class PageTourEntryDialogComponent implements OnInit {
                         }, (subRes: ResponseWrapper) => this.onError(subRes.json));
                 }
             }, (res: ResponseWrapper) => this.onError(res.json));
+
+        if ( this.pageTourEntry ) {
+            this.imgUrl1 = this.pageTourEntry.imgUrl1;
+            this.appendImg('pg_entry_image', this.imgUrl1);
+        }
     }
 
     clear() {
@@ -87,6 +102,41 @@ export class PageTourEntryDialogComponent implements OnInit {
 
     trackTourById(index: number, item: Tour) {
         return item.id;
+    }
+
+    uploadFile() {
+        this.uploader.queue[0].onSuccess = (response, status, headers) => {
+            if (status === 200) {
+                // display the uploaded image
+                this.appendImg('pg_entry_image', response);
+
+                // update pageTourEntry entity
+                this.pageTourEntry.imgUrl1 = response;
+
+                // clear queue
+                this.uploader.clearQueue();
+
+            } else {
+                // if uploading has errors.
+                alert('Failed to upload, status:' + status);
+            }
+        };
+        this.uploader.queue[0].upload();
+    }
+
+    appendImg(id: string, src: string) {
+        // remove old img section first
+        const oldImg = document.getElementsByTagName('img')[0];
+        if ( oldImg ) {
+            oldImg.remove();
+        }
+        // create new img section
+        const elDiv: HTMLElement = document.getElementById(id);
+        const elImage: HTMLElement = document.createElement('img');
+        elImage.setAttribute('src', src);
+        elImage.setAttribute('width', '220');
+        elImage.setAttribute('height', '175');
+        elDiv.appendChild(elImage);
     }
 }
 

@@ -9,6 +9,8 @@ import { JhiEventManager, JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 import { Tour } from './tour.model';
 import { TourPopupService } from './tour-popup.service';
 import { TourService } from './tour.service';
+import { FileUploader } from 'ng2-file-upload';
+import { SERVER_API_URL } from '../../app.constants';
 
 @Component({
     selector: 'jhi-tour-dialog',
@@ -21,6 +23,12 @@ export class TourDialogComponent implements OnInit {
     createTimeDp: any;
     updateTimeDp: any;
 
+    private resourceUrl: string = SERVER_API_URL + 'api/files/upload';
+
+    public uploader: FileUploader = new FileUploader(
+        {   url: this.resourceUrl,
+            formatDataFunctionIsAsync: false});
+
     constructor(
         public activeModal: NgbActiveModal,
         private dataUtils: JhiDataUtils,
@@ -32,6 +40,9 @@ export class TourDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
+        if ( this.tour ) {
+            this.appendImg('pg_entry_image', this.tour.imgUrl1);
+        }
     }
 
     keyupHandler(content: string) {
@@ -82,6 +93,41 @@ export class TourDialogComponent implements OnInit {
 
     private onError(error: any) {
         this.jhiAlertService.error(error.message, null, null);
+    }
+
+    uploadFile() {
+        this.uploader.queue[0].onSuccess = (response, status, headers) => {
+            if (status === 200) {
+                // display the uploaded image
+                this.appendImg('pg_entry_image', response);
+
+                // update pageTourEntry entity
+                this.tour.imgUrl1 = response;
+
+                // clear queue
+                this.uploader.clearQueue();
+
+            } else {
+                // if uploading has errors.
+                alert('Failed to upload, status:' + status);
+            }
+        };
+        this.uploader.queue[0].upload();
+    }
+
+    appendImg(id: string, src: string) {
+        // remove old img section first
+        const oldImg = document.getElementsByTagName('img')[0];
+        if ( oldImg ) {
+            oldImg.remove();
+        }
+        // create new img section
+        const elDiv: HTMLElement = document.getElementById(id);
+        const elImage: HTMLElement = document.createElement('img');
+        elImage.setAttribute('src', src);
+        elImage.setAttribute('width', '220');
+        elImage.setAttribute('height', '175');
+        elDiv.appendChild(elImage);
     }
 }
 

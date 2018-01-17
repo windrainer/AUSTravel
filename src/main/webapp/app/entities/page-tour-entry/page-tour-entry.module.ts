@@ -16,6 +16,8 @@ import {
     PageTourEntryResolvePagingParams,
 } from './';
 
+import { FileUploadModule } from 'ng2-file-upload';
+
 const ENTITY_STATES = [
     ...pageTourEntryRoute,
     ...pageTourEntryPopupRoute,
@@ -24,7 +26,8 @@ const ENTITY_STATES = [
 @NgModule({
     imports: [
         AusTravelSharedModule,
-        RouterModule.forRoot(ENTITY_STATES, { useHash: true })
+        RouterModule.forRoot(ENTITY_STATES, { useHash: true }),
+        FileUploadModule
     ],
     declarations: [
         PageTourEntryComponent,

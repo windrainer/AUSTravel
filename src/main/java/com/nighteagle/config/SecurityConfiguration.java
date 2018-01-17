@@ -106,6 +106,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/api/page-tour-entries").permitAll()
             .antMatchers("/api/tours/page/**").permitAll()
             .antMatchers("/api/tours/enquiry").permitAll()
+            .antMatchers("/api/files/**").permitAll()
             .antMatchers("/api/**").authenticated()
             .antMatchers("/websocket/tracker").hasAuthority(AuthoritiesConstants.ADMIN)
             .antMatchers("/websocket/**").permitAll()

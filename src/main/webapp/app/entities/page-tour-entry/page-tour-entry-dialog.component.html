@@ -45,9 +45,27 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="ausTravelApp.pageTourEntry.imgUrl1" for="field_imgUrl1">Img Url 1</label>
-            <input type="text" class="form-control" name="imgUrl1" id="field_imgUrl1"
-                [(ngModel)]="pageTourEntry.imgUrl1"  />
+            <label class="form-control-label" jhiTranslate="ausTravelApp.pageTourEntry.imgUrl1" for="field_image_url1">Background Image</label>
+            <div id="field_image_url1" class="row">
+                <div class="col-md-9" >
+                    <input type="file" class="form-control" ng2FileSelect [uploader]="uploader" />
+                    <div style="margin-top: 20px">
+                        Progress:
+                        <div class="progress" style="">
+                            <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" *ngIf="uploader.queue[0]">
+                    <button type="button" class="btn btn-success btn-xs" (click)="uploadFile()" [disabled]="uploader.queue[0].isReady ||
+                    uploader.queue[0].isUploading || uploader.queue[0].isSuccess">Upload</button>
+                </div>
+            </div>
+            <div class="row">
+                <div id="pg_entry_image" style="margin-top: 20px" class="col-md-4"></div>
+                <div class="col-md-8">
+                </div>
+            </div>
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="ausTravelApp.pageTourEntry.imgUrl2" for="field_imgUrl2">Img Url 2</label>

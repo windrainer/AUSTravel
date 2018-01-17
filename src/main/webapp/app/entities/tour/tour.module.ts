@@ -16,6 +16,7 @@ import {
     TourResolvePagingParams,
 } from './';
 import { TinymceModule } from '../../travel/tinymce/tinymce.module';
+import { FileUploadModule } from 'ng2-file-upload';
 
 const ENTITY_STATES = [
     ...tourRoute,
@@ -26,7 +27,8 @@ const ENTITY_STATES = [
     imports: [
         AusTravelSharedModule,
         RouterModule.forRoot(ENTITY_STATES, { useHash: true }),
-        TinymceModule
+        TinymceModule,
+        FileUploadModule
     ],
     declarations: [
         TourComponent,
