@@ -1,0 +1,61 @@
+
+<div *ngIf="banner">
+    <h2><span jhiTranslate="ausTravelApp.banner.detail.title">Banner</span> {{banner.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ausTravelApp.banner.background">Background</span></dt>
+        <dd>
+            <span>{{banner.background}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.banner.logo">Logo</span></dt>
+        <dd>
+            <span>{{banner.logo}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.banner.text1">Text 1</span></dt>
+        <dd>
+            <span>{{banner.text1}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.banner.text2">Text 2</span></dt>
+        <dd>
+            <span>{{banner.text2}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.banner.url1">Url 1</span></dt>
+        <dd>
+            <span>{{banner.url1}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.banner.url2">Url 2</span></dt>
+        <dd>
+            <span>{{banner.url2}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.banner.css1">Css 1</span></dt>
+        <dd>
+            <span>{{banner.css1}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.banner.css2">Css 2</span></dt>
+        <dd>
+            <span>{{banner.css2}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.banner.name">Name</span></dt>
+        <dd>
+            <span>{{banner.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.banner.activated">Activated</span></dt>
+        <dd>
+            <span>{{banner.activated}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'banner/'+ banner.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

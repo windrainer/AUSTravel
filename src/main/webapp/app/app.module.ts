@@ -14,6 +14,7 @@ import { PaginationConfig } from './blocks/config/uib-pagination.config';
 import { TourListModule } from './travel/list/list.module';
 import { TourDetailModule } from './travel/detail/detail.module';
 import { ContactModule} from './travel/contact/contact.module';
+import { BannerModule} from './travel/banner/banner.module';
 
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 
@@ -39,7 +40,8 @@ import {
         AusTravelAdminModule,
         AusTravelAccountModule,
         AusTravelEntityModule,
-        ContactModule
+        ContactModule,
+        BannerModule
 
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],

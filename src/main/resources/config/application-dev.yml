@@ -141,4 +141,4 @@ jhipster:
 
 application:
     storage:
-     location: /Applications/Projects/AusTravel/target/aus-travel-1.0.0.2/content/images
+     location: /Applications/Projects/AusTravel/target/aus-travel-1.0.0.3/content/images

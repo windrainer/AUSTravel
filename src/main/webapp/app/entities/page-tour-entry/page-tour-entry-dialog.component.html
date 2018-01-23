@@ -110,23 +110,30 @@
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="ausTravelApp.pageTourEntry.colWidth" for="field_colWidth">Col Width</label>
             <input type="text" class="form-control" name="colWidth" id="field_colWidth"
-                [(ngModel)]="pageTourEntry.colWidth"  />
-        </div>
+                [(ngModel)]="pageTourEntry.colWidth" required />
 
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="ausTravelApp.pageTourEntry.tour" for="field_tour">Tour</label>
-            <select class="form-control" id="field_tour" name="tour" [(ngModel)]="pageTourEntry.tour">
-                <option [ngValue]="null"></option>
-                <option [ngValue]="tourOption.id === pageTourEntry.tour?.id ? pageTourEntry.tour : tourOption" *ngFor="let tourOption of tours; trackBy: trackTourById">{{tourOption.id}}</option>
-            </select>
-        </div>
+            <div [hidden]="!(editForm.controls.colWidth?.dirty && editForm.controls.colWidth?.invalid)">
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.colWidth?.errors?.required" jhiTranslate="entity.validation.required">
+                    This field is required.
+                </small>
+            </div>
     </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
-            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
-        </button>
-        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
-        </button>
+
+    <div class="form-group">
+        <label class="form-control-label" jhiTranslate="ausTravelApp.pageTourEntry.tour" for="field_tour">Tour</label>
+        <select class="form-control" id="field_tour" name="tour" [(ngModel)]="pageTourEntry.tour">
+            <option [ngValue]="null"></option>
+            <option [ngValue]="tourOption.id === pageTourEntry.tour?.id ? pageTourEntry.tour : tourOption" *ngFor="let tourOption of tours; trackBy: trackTourById">{{tourOption.id}}</option>
+        </select>
     </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+        <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+    </button>
+    <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+        <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+    </button>
+</div>
 </form>

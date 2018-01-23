@@ -5,12 +5,14 @@ import { AusTravelSharedModule } from '../../shared';
 
 import { TOUR_LIST_ROUTE, TourListComponent } from './';
 import { ContactModule } from '../contact/contact.module';
+import {BannerModule} from '../banner/banner.module';
 
 @NgModule({
     imports: [
         AusTravelSharedModule,
         RouterModule.forRoot([ TOUR_LIST_ROUTE ], { useHash: true }),
-        ContactModule
+        ContactModule,
+        BannerModule
     ],
     declarations: [
         TourListComponent,

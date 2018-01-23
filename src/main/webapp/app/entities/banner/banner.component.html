@@ -1,0 +1,74 @@
+<div>
+    <h2>
+        <span jhiTranslate="ausTravelApp.banner.home.title">Banners</span>
+        <button class="btn btn-primary float-right jh-create-entity create-banner" [routerLink]="['/', { outlets: { popup: ['banner-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="ausTravelApp.banner.home.createLabel">
+            Create new Banner
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="banners">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="ausTravelApp.banner.background">Background</span></th>
+            <th><span jhiTranslate="ausTravelApp.banner.logo">Logo</span></th>
+            <th><span jhiTranslate="ausTravelApp.banner.text1">Text 1</span></th>
+            <th><span jhiTranslate="ausTravelApp.banner.text2">Text 2</span></th>
+            <th><span jhiTranslate="ausTravelApp.banner.url1">Url 1</span></th>
+            <th><span jhiTranslate="ausTravelApp.banner.url2">Url 2</span></th>
+            <th><span jhiTranslate="ausTravelApp.banner.css1">Css 1</span></th>
+            <th><span jhiTranslate="ausTravelApp.banner.css2">Css 2</span></th>
+            <th><span jhiTranslate="ausTravelApp.banner.name">Name</span></th>
+            <th><span jhiTranslate="ausTravelApp.banner.activated">Activated</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let banner of banners ;trackBy: trackId">
+                <td><a [routerLink]="['../banner', banner.id ]">{{banner.id}}</a></td>
+                <td>{{banner.background}}</td>
+                <td>{{banner.logo}}</td>
+                <td>{{banner.text1}}</td>
+                <td>{{banner.text2}}</td>
+                <td>{{banner.url1}}</td>
+                <td>{{banner.url2}}</td>
+                <td>{{banner.css1}}</td>
+                <td>{{banner.css2}}</td>
+                <td>{{banner.name}}</td>
+                <td>{{banner.activated}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../banner', banner.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'banner/'+ banner.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'banner/'+ banner.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
