@@ -109,7 +109,7 @@ export class TourDialogComponent implements OnInit {
 
             } else {
                 // if uploading has errors.
-                alert('Failed to upload, status:' + status);
+                this.onError('Failed to upload, status:' + status);
             }
         };
         this.uploader.queue[0].upload();

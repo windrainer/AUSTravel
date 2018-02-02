@@ -1,0 +1,61 @@
+
+<div *ngIf="cNTour">
+    <h2><span jhiTranslate="ausTravelApp.cNTour.detail.title">CN Tour</span> {{cNTour.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ausTravelApp.cNTour.name">Name</span></dt>
+        <dd>
+            <span>{{cNTour.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cNTour.price">Price</span></dt>
+        <dd>
+            <span>{{cNTour.price}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cNTour.discount">Discount</span></dt>
+        <dd>
+            <span>{{cNTour.discount}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cNTour.imgUrl1">Img Url 1</span></dt>
+        <dd>
+            <span>{{cNTour.imgUrl1}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cNTour.imgUrl2">Img Url 2</span></dt>
+        <dd>
+            <span>{{cNTour.imgUrl2}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cNTour.createBy">Create By</span></dt>
+        <dd>
+            <span>{{cNTour.createBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cNTour.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{cNTour.createTime | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cNTour.updateBy">Update By</span></dt>
+        <dd>
+            <span>{{cNTour.updateBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cNTour.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{cNTour.updateTime | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cNTour.content">Content</span></dt>
+        <dd>
+            <span>{{cNTour.content}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'cn-tour/'+ cNTour.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

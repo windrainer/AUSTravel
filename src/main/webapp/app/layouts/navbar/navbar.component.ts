@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { JhiLanguageService } from 'ng-jhipster';
+import { JhiLanguageService, JhiEventManager } from 'ng-jhipster';
 
 import { ProfileService } from '../profiles/profile.service';
 import { JhiLanguageHelper, Principal, LoginModalService, LoginService } from '../../shared';
@@ -28,6 +28,7 @@ export class NavbarComponent implements OnInit {
         private loginService: LoginService,
         private languageService: JhiLanguageService,
         private languageHelper: JhiLanguageHelper,
+        private eventManager: JhiEventManager,
         private principal: Principal,
         private loginModalService: LoginModalService,
         private profileService: ProfileService,
@@ -50,6 +51,8 @@ export class NavbarComponent implements OnInit {
 
     changeLanguage(languageKey: string) {
       this.languageService.changeLanguage(languageKey);
+      // console.log('change language to ' + languageKey);
+      this.eventManager.broadcast({ name: 'lang_changed', content: 'languageKey'});
     }
 
     collapseNavbar() {

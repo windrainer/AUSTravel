@@ -1,0 +1,14 @@
+{
+    "ausTravelApp": {
+        "contact": {
+            "name": "Name",
+            "title": "Contact Us",
+            "email": "Email",
+            "message": "Message",
+            "address": "Address",
+            "phone": "Phone",
+            "mobile": "Mobile",
+            "submit": "Submit"
+        }
+    }
+}

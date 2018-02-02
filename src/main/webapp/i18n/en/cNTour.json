@@ -1,0 +1,30 @@
+{
+    "ausTravelApp": {
+        "cNTour" : {
+            "home": {
+                "title": "CN Tours",
+                "createLabel": "Create a new CN Tour",
+                "createOrEditLabel": "Create or edit a CN Tour"
+            },
+            "created": "A new CN Tour is created with identifier {{ param }}",
+            "updated": "A CN Tour is updated with identifier {{ param }}",
+            "deleted": "A CN Tour is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete CN Tour {{ id }}?"
+            },
+            "detail": {
+                "title": "CN Tour"
+            },
+            "name": "Name",
+            "price": "Price",
+            "discount": "Discount",
+            "imgUrl1": "Img Url 1",
+            "imgUrl2": "Img Url 2",
+            "createBy": "Create By",
+            "createTime": "Create Time",
+            "updateBy": "Update By",
+            "updateTime": "Update Time",
+            "content": "Content"
+        }
+    }
+}

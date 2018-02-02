@@ -6,34 +6,34 @@
             <div class="col-lg-6">
                 <div class="contact-info">
                     <!-- Show Info Button -->
-                    <a href="#" class="show-info-link"><i class="fa fa-info"></i> Show info</a>
+                    <!--<a href="#" class="show-info-link"><i class="fa fa-info"></i> Show info</a>-->
                     <div id="map" style="height: 650px;"></div>
                     <address class="contact-info-wrapper">
                         <ul class="list-unstyled">
                             <!-- Address -->
                             <li class="contact-group">
-                                <span class="adr-heading">Address</span>
+                                <span class="adr-heading" jhiTranslate="ausTravelApp.contact.address">Address</span>
                                 <span class="adr-info">100 Street, Il, US</span>
                             </li>
                             <!-- Email -->
                             <li class="contact-group">
-                                <span class="adr-heading">Email</span>
+                                <span class="adr-heading" jhiTranslate="ausTravelApp.contact.email">Email</span>
                                 <span class="adr-info">sayhello@email.com</span>
                             </li>
                         </ul>
                         <ul class="list-unstyled">
                             <!-- Phone -->
                             <li class="contact-group">
-                                <span class="adr-heading">Phone</span>
+                                <span class="adr-heading" jhiTranslate="ausTravelApp.contact.phone">Phone</span>
                                 <span class="adr-info">+ 123 4567 890</span>
                             </li>
                             <!-- Mobile -->
                             <li class="contact-group">
-                                <span class="adr-heading">Mobile</span>
+                                <span class="adr-heading" jhiTranslate="ausTravelApp.contact.mobile">Mobile</span>
                                 <span class="adr-info">+ 123 4567 890</span>
                             </li>
                         </ul>
-                        <a href="#" class="show-map"><i class="fa fa-map-o"></i> Show on map</a>
+                        <!--<a href="#" class="show-map"><i class="fa fa-map-o"></i> Show on map</a>-->
                     </address>
                 </div>
             </div>
@@ -42,12 +42,16 @@
                 <div class="box-text">
                     <div class="box-text-inner pd-large-lg pd-small-xs">
                         <div class="heading">
-                            <h2>Contact Us</h2>
+                            <h2 jhiTranslate="ausTravelApp.contact.title">
+                                Contact Us
+                            </h2>
                         </div>
                         <form role="form" id="contactForm" #contactForm="ngForm" (ngSubmit)="sendEnquiryEmail()" data-toggle="validator" >
                             <!-- Name -->
                             <div class="form-group">
-                                <label for="name">Name</label>
+                                <label for="name" jhiTranslate="ausTravelApp.contact.name">
+                                    Name
+                                </label>
                                 <input id="name" name="name" class="form-control"
                                        required minlength="4"
                                        [(ngModel)]="contact.name" #name="ngModel">
@@ -63,8 +67,10 @@
 
                             <!-- Email -->
                             <div class="form-group">
-                                <label class="form-control-label" for="email" jhiTranslate="global.form.email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" #email="ngModel" placeholder="Enter your email"
+                                <label class="form-control-label" for="email">
+                                    <span jhiTranslate="ausTravelApp.contact.email">Email</span>
+                                </label>
+                                <input type="email" class="form-control" id="email" name="email" #email="ngModel"
                                        [(ngModel)]="contact.email" minlength=5 maxlength=100 email required>
                                 <div *ngIf="email.dirty && email.invalid">
                                     <small class="form-text text-danger" *ngIf="email.errors.required"
@@ -87,11 +93,13 @@
                             </div>
                             <!-- Message -->
                             <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea class="form-control" [(ngModel)]="contact.content" name="message" id="message" rows="5" placeholder="Your Message" required></textarea>
+                                <label for="message" jhiTranslate="ausTravelApp.contact.message">
+                                    Message
+                                </label>
+                                <textarea class="form-control" [(ngModel)]="contact.content" name="message" id="message" rows="5"  required></textarea>
                                 <div class="help-block with-errors"></div>
                             </div>
-                            <button type="submit" [disabled]="contactForm.form.invalid" id="form-submit" class="btn btn-skin pull-right">Submit</button>
+                            <button type="submit" [disabled]="contactForm.form.invalid" id="form-submit" jhiTranslate="ausTravelApp.contact.submit" class="btn btn-skin pull-right">Submit</button>
                             <div id="msgSubmit" class="h3 text-center hidden"></div>
                         </form>
                     </div>
@@ -99,28 +107,5 @@
             </div>
         </div>
     </div>
-    <!--<div class="bottom-footer">-->
-    <!--<div class="container">-->
-    <!--<div class="row">-->
-    <!--<div class="col-md-3">-->
-    <!--<p>Copyright 20xx - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>-->
-    <!--</div>-->
-    <!--<div class="col-md-6">-->
-    <!--<ul class="list-inline social-link">-->
-    <!--<li><a href="#"><i class="fa fa-twitter"></i></a></li>-->
-    <!--<li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
-    <!--<li><a href="#"><i class="fa fa-linkedin"></i></a></li>-->
-    <!--<li><a href="#"><i class="fa fa-pinterest"></i></a></li>-->
-    <!--</ul>-->
-    <!--</div>-->
-    <!--<div class="col-md-3">-->
-    <!--<ul class="list-inline quicklinks">-->
-    <!--<li><a href="#">Privacy Policy</a></li>-->
-    <!--<li><a href="#">Terms of Use</a></li>-->
-    <!--</ul>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
 </footer>
 <!-- Footer -->

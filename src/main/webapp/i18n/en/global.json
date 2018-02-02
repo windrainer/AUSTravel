@@ -11,6 +11,9 @@
                 "pageTourEntry": "Page Tour Entry",
                 "cube": "Cube",
                 "banner": "Banner",
+                "cnTour": "CN Tour",
+                "cnPageTourEntry": "CN Page Tour Entry",
+                "cnbanner": "Cnbanner",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -1,0 +1,61 @@
+
+<div *ngIf="cnbanner">
+    <h2><span jhiTranslate="ausTravelApp.cnbanner.detail.title">Cnbanner</span> {{cnbanner.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ausTravelApp.cnbanner.background">Background</span></dt>
+        <dd>
+            <span>{{cnbanner.background}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cnbanner.logo">Logo</span></dt>
+        <dd>
+            <span>{{cnbanner.logo}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cnbanner.text1">Text 1</span></dt>
+        <dd>
+            <span>{{cnbanner.text1}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cnbanner.text2">Text 2</span></dt>
+        <dd>
+            <span>{{cnbanner.text2}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cnbanner.url1">Url 1</span></dt>
+        <dd>
+            <span>{{cnbanner.url1}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cnbanner.url2">Url 2</span></dt>
+        <dd>
+            <span>{{cnbanner.url2}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cnbanner.css1">Css 1</span></dt>
+        <dd>
+            <span>{{cnbanner.css1}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cnbanner.css2">Css 2</span></dt>
+        <dd>
+            <span>{{cnbanner.css2}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cnbanner.name">Name</span></dt>
+        <dd>
+            <span>{{cnbanner.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cnbanner.activated">Activated</span></dt>
+        <dd>
+            <span>{{cnbanner.activated}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'cnbanner/'+ cnbanner.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

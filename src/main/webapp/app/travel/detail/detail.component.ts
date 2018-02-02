@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { JhiEventManager } from 'ng-jhipster';
-import { Account, LoginModalService, Principal } from '../../shared';
+import {JhiEventManager, JhiLanguageService} from 'ng-jhipster';
+import { Account, LoginModalService } from '../../shared';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import { Tour } from '../../entities/tour/tour.model'
 import {DetailService} from './detail.service';
@@ -22,11 +22,11 @@ export class TourDetailComponent implements OnInit {
     tourDetail: Tour;
 
     constructor(
-        private principal: Principal,
         private loginModalService: LoginModalService,
         private eventManager: JhiEventManager,
+        private languageService: JhiLanguageService,
         private _sanitizer: DomSanitizer,
-        private tourService: DetailService,
+        private tourDetailService: DetailService,
         private route: ActivatedRoute
     ) {
         this.tourDetail = new Tour();
@@ -35,27 +35,28 @@ export class TourDetailComponent implements OnInit {
     ngOnInit() {
         const id = +this.route.snapshot.paramMap.get('id');
         this.load(id);
-        this.principal.identity().then((account) => {
-            this.account = account;
+        this.registerLanguageChangeEvent();
+    }
+
+    registerLanguageChangeEvent() {
+        this.eventManager.subscribe('lang_changed', () => {
+            const id = +this.route.snapshot.paramMap.get('id');
+            this.load(id);
         });
-        this.registerAuthenticationSuccess();
     }
 
     load(id) {
-        this.tourService.find(id).subscribe((tour) => {
-            this.tourDetail = tour;
+        this.languageService.getCurrent().then((language) => {
+            if ( language === 'en') {
+                this.tourDetailService.find(id).subscribe((tour) => {
+                    this.tourDetail = tour;
+                });
+            } else if (language === 'zh-cn') {
+                this.tourDetailService.findCN(id).subscribe((tour) => {
+                    this.tourDetail = tour;
+                });
+            }
         });
-    }
-    registerAuthenticationSuccess() {
-        this.eventManager.subscribe('authenticationSuccess', (message) => {
-            this.principal.identity().then((account) => {
-                this.account = account;
-            });
-        });
-    }
-
-    isAuthenticated() {
-        return this.principal.isAuthenticated();
     }
 
     login() {

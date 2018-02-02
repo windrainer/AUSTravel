@@ -1,0 +1,75 @@
+
+<div *ngIf="cNPageTourEntry">
+    <h2><span jhiTranslate="ausTravelApp.cNPageTourEntry.detail.title">CN Page Tour Entry</span> {{cNPageTourEntry.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ausTravelApp.cNPageTourEntry.name">Name</span></dt>
+        <dd>
+            <span>{{cNPageTourEntry.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cNPageTourEntry.heading">Heading</span></dt>
+        <dd>
+            <span>{{cNPageTourEntry.heading}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cNPageTourEntry.subTitle">Sub Title</span></dt>
+        <dd>
+            <span>{{cNPageTourEntry.subTitle}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cNPageTourEntry.content">Content</span></dt>
+        <dd>
+            <span>{{cNPageTourEntry.content}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cNPageTourEntry.imgUrl1">Img Url 1</span></dt>
+        <dd>
+            <span>{{cNPageTourEntry.imgUrl1}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cNPageTourEntry.imgUrl2">Img Url 2</span></dt>
+        <dd>
+            <span>{{cNPageTourEntry.imgUrl2}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cNPageTourEntry.cssStyle">Css Style</span></dt>
+        <dd>
+            <span>{{cNPageTourEntry.cssStyle}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cNPageTourEntry.createBy">Create By</span></dt>
+        <dd>
+            <span>{{cNPageTourEntry.createBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cNPageTourEntry.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{cNPageTourEntry.createTime | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cNPageTourEntry.updateBy">Update By</span></dt>
+        <dd>
+            <span>{{cNPageTourEntry.updateBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cNPageTourEntry.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{cNPageTourEntry.updateTime | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cNPageTourEntry.colWidth">Col Width</span></dt>
+        <dd>
+            <span>{{cNPageTourEntry.colWidth}}</span>
+        </dd>
+        <dt><span jhiTranslate="ausTravelApp.cNPageTourEntry.cNTour">C N Tour</span></dt>
+        <dd>
+            <div *ngIf="cNPageTourEntry.cNTour">
+                <a [routerLink]="['/cn-tour', cNPageTourEntry.cNTour?.id]">{{cNPageTourEntry.cNTour?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'cn-page-tour-entry/'+ cNPageTourEntry.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

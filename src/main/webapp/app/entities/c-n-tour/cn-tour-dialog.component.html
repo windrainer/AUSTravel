@@ -1,0 +1,113 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCNTourLabel" jhiTranslate="ausTravelApp.cNTour.home.createOrEditLabel">Create or edit a CN Tour</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!cNTour.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="cNTour.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cNTour.name" for="field_name">名称</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="cNTour.name" required />
+            <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                   此项不能位空
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cNTour.price" for="field_price">价格</label>
+            <input type="number" class="form-control" name="price" id="field_price"
+                [(ngModel)]="cNTour.price"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cNTour.discount" for="field_discount">折扣</label>
+            <input type="number" class="form-control" name="discount" id="field_discount"
+                [(ngModel)]="cNTour.discount"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.tour.imgUrl1" for="field_imgUrl1">图片1</label>
+            <div id="field_image_url1" class="row">
+                <div class="col-md-9" >
+                    <input type="file" class="form-control" ng2FileSelect [uploader]="uploader" />
+                    <div style="margin-top: 20px">
+                        Progress:
+                        <div class="progress" style="">
+                            <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" *ngIf="uploader.queue[0]">
+                    <button type="button" class="btn btn-success btn-xs" (click)="uploadFile()" [disabled]="uploader.queue[0].isReady ||
+                    uploader.queue[0].isUploading || uploader.queue[0].isSuccess">Upload</button>
+                </div>
+            </div>
+            <div class="row">
+                <div id="pg_entry_image" style="margin-top: 20px" class="col-md-4"></div>
+                <div class="col-md-8">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cNTour.imgUrl2" for="field_imgUrl2">图片2</label>
+            <input type="text" class="form-control" name="imgUrl2" id="field_imgUrl2"
+                [(ngModel)]="cNTour.imgUrl2"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cNTour.createBy" for="field_createBy">创建人</label>
+            <input type="text" class="form-control" name="createBy" id="field_createBy"
+                [(ngModel)]="cNTour.createBy"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cNTour.createTime" for="field_createTime">创建时间</label>
+            <div class="input-group">
+                <input id="field_createTime" type="text" class="form-control" name="createTime" ngbDatepicker  #createTimeDp="ngbDatepicker" [(ngModel)]="cNTour.createTime"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="createTimeDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cNTour.updateBy" for="field_updateBy">更新人</label>
+            <input type="text" class="form-control" name="updateBy" id="field_updateBy"
+                [(ngModel)]="cNTour.updateBy"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cNTour.updateTime" for="field_updateTime">更新时间</label>
+            <div class="input-group">
+                <input id="field_updateTime" type="text" class="form-control" name="updateTime" ngbDatepicker  #updateTimeDp="ngbDatepicker" [(ngModel)]="cNTour.updateTime"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="updateTimeDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.tour.content" for="field_content">Content</label>
+            <jhi-tinymce-editor [content]="cNTour.content" [elementId]="'tour_editor'" (onEditorKeyup)="keyupHandler($event)"></jhi-tinymce-editor>
+            <div [hidden]="!(editForm.controls.content?.dirty && editForm.controls.content?.invalid)">
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.content?.errors?.required" jhiTranslate="entity.validation.required">
+                    该项不能为空
+                </small>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">退出</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">提交</span>
+        </button>
+    </div>
+</form>

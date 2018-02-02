@@ -3,11 +3,19 @@
     <!-- ////////////Overview Main Nav -->
     <div class="no-gutter" id="overview-mainnav">
         <div *ngFor="let homeCube of homeCubes" class="col-sm-{{homeCube.colWidth}} col-xs-6 nav-item">
-            <a class="nav-item-inner" [routerLink]="['tour-detail',homeCube.tour?.id]">
+            <a *ngIf="homeCube.tour" class="nav-item-inner" [routerLink]="['tour-detail', homeCube.tour?.id]">
                 <div class="nav-item-image gradient-{{homeCube.cssStyle}}" [style]="getBackgroundImage(homeCube)"></div>
-                <h3 class="sub-title">{{homeCube.subTitle}}</h3>
+                <h3 class="sub-title">{{homeCube.heading}}</h3>
                 <div class="nav-item-detail">
-                    <h2 class="title">{{homeCube.heading}}</h2>
+                    <h2 class="title">{{homeCube.subTitle}}</h2>
+                    <p>{{homeCube.content}}</p>
+                </div>
+            </a>
+            <a *ngIf="homeCube.cntour" class="nav-item-inner" [routerLink]="['cn-tour-detail', homeCube.cntour?.id]">
+                <div class="nav-item-image gradient-{{homeCube.cssStyle}}" [style]="getBackgroundImage(homeCube)"></div>
+                <h3 class="sub-title">{{homeCube.heading}}</h3>
+                <div class="nav-item-detail">
+                    <h2 class="title">{{homeCube.subTitle}}</h2>
                     <p>{{homeCube.content}}</p>
                 </div>
             </a>

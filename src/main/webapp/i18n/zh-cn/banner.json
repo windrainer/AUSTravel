@@ -24,7 +24,8 @@
             "css1": "Css 1",
             "css2": "Css 2",
             "name": "Name",
-            "activated": "Activated"
+            "activated": "Activated",
+            "linkText": "开启旅程"
         }
     }
 }

@@ -1,0 +1,31 @@
+{
+    "ausTravelApp": {
+        "cnbanner" : {
+            "home": {
+                "title": "中文Banner",
+                "createLabel": "创建一个中文Banner",
+                "createOrEditLabel": "创建或更改一个中文Banner"
+            },
+            "created": "新的Banner创建了，参数： {{ param }}",
+            "updated": "Banner更新了，参数：{{ param }}",
+            "deleted": "Banner删除了，参数： {{ param }}",
+            "delete": {
+                "question": "确定要删除当前Banner吗？ {{ id }}?"
+            },
+            "detail": {
+                "title": "中文Banner"
+            },
+            "background": "背景图片",
+            "logo": "Logo",
+            "text1": "文字1",
+            "text2": "文字2",
+            "url1": "链接1",
+            "url2": "链接2",
+            "css1": "样式1",
+            "css2": "样式2",
+            "name": "名称",
+            "activated": "是否激活",
+            "ceshi": "这是个标签翻译测试"
+        }
+    }
+}

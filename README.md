@@ -22,3 +22,5 @@ v 1.0.0.2
 v 1.0.0.3
 
 1) added Image upload function that allow admin to change pictures
+
+2) added Multi-lingual support, Chinese.

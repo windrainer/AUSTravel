@@ -1,0 +1,76 @@
+<div>
+    <h2>
+        <span jhiTranslate="ausTravelApp.cNTour.home.title">CN Tours</span>
+        <button class="btn btn-primary float-right jh-create-entity create-cn-tour" [routerLink]="['/', { outlets: { popup: ['cn-tour-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="ausTravelApp.cNTour.home.createLabel">
+            Create new CN Tour
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="cNTours">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="name"><span jhiTranslate="ausTravelApp.cNTour.name">Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="price"><span jhiTranslate="ausTravelApp.cNTour.price">Price</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="discount"><span jhiTranslate="ausTravelApp.cNTour.discount">Discount</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createBy"><span jhiTranslate="ausTravelApp.cNTour.createBy">Create By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createTime"><span jhiTranslate="ausTravelApp.cNTour.createTime">Create Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updateBy"><span jhiTranslate="ausTravelApp.cNTour.updateBy">Update By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updateTime"><span jhiTranslate="ausTravelApp.cNTour.updateTime">Update Time</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let cNTour of cNTours ;trackBy: trackId">
+                <td><a [routerLink]="['../cn-tour', cNTour.id ]">{{cNTour.id}}</a></td>
+                <td>{{cNTour.name}}</td>
+                <td>{{cNTour.price}}</td>
+                <td>{{cNTour.discount}}</td>
+                <td>{{cNTour.createBy}}</td>
+                <td>{{cNTour.createTime | date:'mediumDate'}}</td>
+                <td>{{cNTour.updateBy}}</td>
+                <td>{{cNTour.updateTime | date:'mediumDate'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../cn-tour', cNTour.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'cn-tour/'+ cNTour.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'cn-tour/'+ cNTour.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="cNTours && cNTours.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

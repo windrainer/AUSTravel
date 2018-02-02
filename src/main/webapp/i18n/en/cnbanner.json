@@ -1,0 +1,30 @@
+{
+    "ausTravelApp": {
+        "cnbanner" : {
+            "home": {
+                "title": "Cnbanners",
+                "createLabel": "Create a new Cnbanner",
+                "createOrEditLabel": "Create or edit a Cnbanner"
+            },
+            "created": "A new Cnbanner is created with identifier {{ param }}",
+            "updated": "A Cnbanner is updated with identifier {{ param }}",
+            "deleted": "A Cnbanner is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Cnbanner {{ id }}?"
+            },
+            "detail": {
+                "title": "Cnbanner"
+            },
+            "background": "Background",
+            "logo": "Logo",
+            "text1": "Text 1",
+            "text2": "Text 2",
+            "url1": "Url 1",
+            "url2": "Url 2",
+            "css1": "Css 1",
+            "css2": "Css 2",
+            "name": "Name",
+            "activated": "Activated"
+        }
+    }
+}

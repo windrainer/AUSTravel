@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from './contact.model';
 import { ContactService } from './contact.service';
-import { JhiLanguageService } from 'ng-jhipster';
+import { JhiLanguageService} from 'ng-jhipster';
 
 @Component({
     selector: 'jhi-page-contact',
@@ -17,7 +17,6 @@ export class ContactComponent implements OnInit {
     error: string;
 
     constructor(
-        private languageService: JhiLanguageService,
         private contactService: ContactService) {
     }
 

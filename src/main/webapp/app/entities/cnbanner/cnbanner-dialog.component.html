@@ -1,0 +1,84 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCnbannerLabel" jhiTranslate="ausTravelApp.cnbanner.home.createOrEditLabel">Create or edit a Cnbanner</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!cnbanner.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="cnbanner.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cnbanner.background" for="field_background">Background</label>
+            <input type="text" class="form-control" name="background" id="field_background"
+                [(ngModel)]="cnbanner.background"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cnbanner.logo" for="field_logo">Logo</label>
+            <input type="text" class="form-control" name="logo" id="field_logo"
+                [(ngModel)]="cnbanner.logo"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cnbanner.text1" for="field_text1">Text 1</label>
+            <input type="text" class="form-control" name="text1" id="field_text1"
+                [(ngModel)]="cnbanner.text1"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cnbanner.text2" for="field_text2">Text 2</label>
+            <input type="text" class="form-control" name="text2" id="field_text2"
+                [(ngModel)]="cnbanner.text2"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cnbanner.url1" for="field_url1">Url 1</label>
+            <input type="text" class="form-control" name="url1" id="field_url1"
+                [(ngModel)]="cnbanner.url1"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cnbanner.url2" for="field_url2">Url 2</label>
+            <input type="text" class="form-control" name="url2" id="field_url2"
+                [(ngModel)]="cnbanner.url2"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cnbanner.css1" for="field_css1">Css 1</label>
+            <input type="text" class="form-control" name="css1" id="field_css1"
+                [(ngModel)]="cnbanner.css1"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cnbanner.css2" for="field_css2">Css 2</label>
+            <input type="text" class="form-control" name="css2" id="field_css2"
+                [(ngModel)]="cnbanner.css2"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cnbanner.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="cnbanner.name" required />
+            <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ausTravelApp.cnbanner.activated" for="field_activated">Activated</label>
+            <input type="checkbox" class="form-control" name="activated" id="field_activated"
+                [(ngModel)]="cnbanner.activated"  />
+        </div>
+        <div class="form-group">
+            <span jhiTranslate="ausTravelApp.contact.title">This is a tag test</span>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

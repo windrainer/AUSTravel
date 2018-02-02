@@ -8,8 +8,12 @@
     <include file="config/liquibase/changelog/20171008101158_added_entity_Tour.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20171008131352_added_entity_PageTourEntry.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180117112907_added_entity_Banner.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180123110407_added_entity_CNTour.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180124073500_added_entity_Cnbanner.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180125083528_added_entity_CNPageTourEntry.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20171008131352_added_entity_constraints_PageTourEntry.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20171008101158_added_entity_Tour.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180125083528_added_entity_constraints_CNPageTourEntry.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

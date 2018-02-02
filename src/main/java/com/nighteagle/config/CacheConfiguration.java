@@ -44,6 +44,9 @@ public class CacheConfiguration {
             cm.createCache(com.nighteagle.domain.Tour.class.getName(), jcacheConfiguration);
             cm.createCache(com.nighteagle.domain.PageTourEntry.class.getName(), jcacheConfiguration);
             cm.createCache(com.nighteagle.domain.Banner.class.getName(), jcacheConfiguration);
+            cm.createCache(com.nighteagle.domain.CNTour.class.getName(), jcacheConfiguration);
+            cm.createCache(com.nighteagle.domain.CNPageTourEntry.class.getName(), jcacheConfiguration);
+            cm.createCache(com.nighteagle.domain.Cnbanner.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
