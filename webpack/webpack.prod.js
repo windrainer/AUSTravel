@@ -8,6 +8,7 @@ const path = require('path');
 
 const utils = require('./utils.js');
 const commonConfig = require('./webpack.common.js');
+var copyWebpackPlugin = require('copy-webpack-plugin');
 
 const ENV = 'production';
 const extractCSS = new ExtractTextPlugin(`[name].[hash].css`);

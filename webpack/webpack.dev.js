@@ -13,7 +13,7 @@ const ENV = 'development';
 module.exports = webpackMerge(commonConfig({ env: ENV }), {
     devtool: 'eval-source-map',
     devServer: {
-        contentBase: './target/aus-travel-1.0.0.3',
+        contentBase: './target/www',
         proxy: [{
             context: [
                 /* jhipster-needle-add-entity-to-webpack - JHipster will add entity api paths here */
@@ -40,7 +40,7 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
         main: './src/main/webapp/app/app.main'
     },
     output: {
-        path: utils.root('target/aus-travel-1.0.0.3'),
+        path: utils.root('target/www'),
         filename: 'app/[name].bundle.js',
         chunkFilename: 'app/[id].chunk.js'
     },

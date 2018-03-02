@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import {JhiEventManager, JhiLanguageService} from 'ng-jhipster';
 import { Account, LoginModalService } from '../../shared';
-import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Tour } from '../../entities/tour/tour.model'
 import {DetailService} from './detail.service';
 import { ActivatedRoute } from '@angular/router';

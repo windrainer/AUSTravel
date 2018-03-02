@@ -22,8 +22,11 @@ public class FileSystemStorageService implements StorageService {
 
     private final Path rootLocation;
 
+    private final String rootImagePath;
+
     @Autowired
     public FileSystemStorageService(ApplicationProperties properties) {
+        this.rootImagePath = properties.getStorage().getLocation();
         this.rootLocation = Paths.get(properties.getStorage().getLocation());
     }
 
@@ -44,7 +47,7 @@ public class FileSystemStorageService implements StorageService {
             Path fullPath = this.rootLocation.resolve(filename);
             Files.copy(file.getInputStream(), fullPath, StandardCopyOption.REPLACE_EXISTING);
 
-            return "/content/images/"+filename;
+            return rootImagePath + "/" + filename;
         }
         catch (IOException e) {
             throw new StorageException("Failed to store file " + filename, e);

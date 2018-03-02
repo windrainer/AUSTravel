@@ -31,6 +31,7 @@ export class TinymceComponent implements AfterViewInit, OnDestroy {
         tinymce.init({
             selector: '#' + this.elementId,
             plugins: ['link', 'paste', 'table'],
+            height: 500,
             skin_url: '../../../content/tinymce/skins/lightgray',
             setup: (editor) => {
                 this.editor = editor;
